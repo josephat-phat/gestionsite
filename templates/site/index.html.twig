@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">Ajouter un site</div>
+        </div><br /><hr/>
+
+        <div class="row">
+            <div class="col-md-12">
+                
+                <form action="/ajout_site" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="input">Nom site</label>
+                            <input type="text" id="input" class="form-control" name="nomsite">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="input">lien</label>
+                            <input type="text" id="input" class="form-control" name="lien">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="input">Derscription</label>
+                            <input type="text" id="input" class="form-control" name="description">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="input">Client</label>
+                            <select type="text" id="input" class="form-control" name="client">
+                                {% for client in clients %}
+                                    <option value="{{client.nomClient}}">{{client.nomClient}}</option>
+                                {% endfor %}
+                            </select>    
+                        </div>
+                        <div class="col-md-12">
+                            <label for="input">Version php</label>
+                            <select type="text" id="input" class="form-control" name="vphp">
+                                <option value="7.0">7.0</option>
+                                <option value="7.1">7.1</option>
+                                <option value="7.2">7.2</option>
+                                <option value="7.3">7.3</option>
+                                <option value="7.4">7.4</option>
+                            </select>
+                        </div><br/><br/><br/>
+                        
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" name="ajout">Ajouter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

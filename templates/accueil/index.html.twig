@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">Liste des site</div>
+        </div><br /><hr/>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <table style="width: 100%;">
+                    <tr>
+                        <th>Nom site</th>
+                        <th>Lien</th>
+                        <th>Description</th>
+                        <th>Client</th>
+                        <th>Version php</th>
+                    </tr>
+                    {% for site in sites %}
+                        <tr>
+                            <td>{{ site.nomSite }}</td>
+                            <td>{{ site.lien }}</td>
+                            <td>{{ site.description }}</td>
+                            <td>{{ site.client }}</td>
+                            <td>{{ site.phpVersion }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <a>{{ knp_pagination_render(sites) }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
